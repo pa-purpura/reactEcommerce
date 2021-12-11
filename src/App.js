@@ -1,13 +1,21 @@
 import './App.css'
 import { BrowserRouter, Routes } from 'react-router-dom'
-import { Route } from 'react-router';
-import Home from './pages/Home';
-import Product from './pages/Product';
-import NotFound from './pages/NotFound';
+import { Route } from 'react-router'
+import Home from './pages/Home'
+// import Product from './pages/Product'
+import NotFound from './pages/NotFound'
 
 function App() {
   return (
+    // provider carrello
+
     <BrowserRouter>
+      <nav>
+        {/* links */}
+
+        {/* icona cart: quantità */}
+      </nav>
+
       <Routes>
 
         <Route
@@ -16,9 +24,14 @@ function App() {
         />
 
         <Route
+          path="/cart"
+          element={<></>}
+        />
+
+        {/* <Route
           path="/product/:id"
           element={<Product/>}
-        />
+        /> */}
 
         <Route
           path="*"
@@ -30,4 +43,4 @@ function App() {
   );
 }
 
-export default App;
+export default App
