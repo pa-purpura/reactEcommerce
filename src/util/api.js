@@ -9,9 +9,24 @@ const api = {
   getProduct: (id) => {
     return axiosInstance.get(`product/${id}`)
   },
+  getCart: () => {
+    return axiosInstance.get('cart')
+  },
   addToCart: (id, data) => {
     return axiosInstance.post(`addToCart/${id}`, data)
-  }
+  },
+  updateCart: (id, data) => {
+    return axiosInstance.post(`updateCart/${id}`, data)
+  },
+  emptyCart: () => {
+    return axiosInstance.get('emptyCart')
+  },
+  checkOut: () => {
+    return axiosInstance.get('checkout')
+  },
+  getUser: (data) => {
+    return axiosInstance.post('login', data)
+  },
 }
 
 window.api = api

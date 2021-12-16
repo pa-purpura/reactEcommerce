@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react"
 import api from "../util/api"
 import Product from "../components/Product"
+import Card from "../components/Card"
 
-export default function Home () {
+export default function Home() {
   const [loading, setLoading] = useState(true)
   const [data, setData] = useState([])
 
@@ -10,8 +11,7 @@ export default function Home () {
     (async () => {
       try {
         const res = await api.getProducts()
-
-        console.log(res)
+        // console.log(res)
         setData(res.data.products)
       } catch (err) {
         console.warn(err)
@@ -23,16 +23,14 @@ export default function Home () {
 
   return (
     <>
-      <h1>HomePage</h1>
-
       {loading
         ? 'Loading'
         : data.length
           ?
-          <div>
-            {data.map(product => (
-              <Product
-                key={product.id}
+          <div className="d-flex flex-wrap">
+            {data.map((product, key) => (
+              <Card
+                key={key}
                 data={product}
               />
             ))}
